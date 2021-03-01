@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	// https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+	compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.6.1'
+	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
+	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.36'
+	// https://mvnrepository.com/artifact/jstl/jstl
+	compile group: 'jstl', name: 'jstl', version: '1.2'
+	// https://mvnrepository.com/artifact/taglibs/standard
+	compile group: 'taglibs', name: 'standard', version: '1.1.2'
+}
